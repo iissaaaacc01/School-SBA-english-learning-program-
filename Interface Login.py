@@ -40,15 +40,15 @@ class EnglishLearningApp: #main application class that handles the gui and game 
     def __init__(self, root): #open a application, set up the main window, load user data, and prepare the different screens
         #set the title, size, and background color of the main window
         self.root = root 
-        self.root.title("Interactive English Learning") #(title)
-        self.root.geometry("400x450") #(window size)
-        self.root.configure(bg="#f0f4f8") #(background color)
+        self.root.title("Interactive English Learning") #title
+        self.root.geometry("400x450") #window size
+        self.root.configure(bg="#f0f4f8") #background color
         
         #load user data from the file when the application starts, and store it in a variable for later use
         self.data = load_data() #a variable to keep track of the currently logged in user, and the current word being played in the game
-        self.active_user = None #(store the username of the currently logged in user as value)
-        self.current_word = "" #(store and use current word as value)
-        self.scrambled_word = "" #(store and use scrambled word as value)
+        self.active_user = None #store the username of the currently logged in user as value
+        self.current_word = "" #store and use current word as value
+        self.scrambled_word = "" #store and use scrambled word as value
         # font styling
         self.title_font = ("Helvetica", 16, "bold")
         self.normal_font = ("Helvetica", 12)
@@ -88,14 +88,14 @@ class EnglishLearningApp: #main application class that handles the gui and game 
         tk.Label(self.frame_login, text="Welcome to English Learner", font=self.title_font, bg="#f0f4f8", pady=20).pack()
         
         #add labels and entry fields(input box) for username and buttons
-        tk.Label(self.frame_login, text="Username:", font=self.normal_font, bg="#f0f4f8").pack() #(create a label for username)
-        self.entry_username = tk.Entry(self.frame_login, font=self.normal_font) #(create input box for username)
-        self.entry_username.pack(pady=5) #(display it)
+        tk.Label(self.frame_login, text="Username:", font=self.normal_font, bg="#f0f4f8").pack() #create a label for username
+        self.entry_username = tk.Entry(self.frame_login, font=self.normal_font) #create input box for username
+        self.entry_username.pack(pady=5) #display it
         
         #add labels and entry fields(input box) for password, and buttons
-        tk.Label(self.frame_login, text="Password:", font=self.normal_font, bg="#f0f4f8").pack() #(create a label for password)
-        self.entry_password = tk.Entry(self.frame_login, font=self.normal_font, show="*") #(create input box for password) , show="*" makes the password input hidden with asterisks for security
-        self.entry_password.pack(pady=5) #(display it)
+        tk.Label(self.frame_login, text="Password:", font=self.normal_font, bg="#f0f4f8").pack() #create a label for password
+        self.entry_password = tk.Entry(self.frame_login, font=self.normal_font, show="*") #create input box for password , show="*" makes the password input hidden with asterisks for security
+        self.entry_password.pack(pady=5) #display it
         
         #add buttons for login and registration, and link them to their functions
         tk.Button(self.frame_login, text="Login", font=self.normal_font, width=15, bg="#4CAF50", fg="white", command=self.login).pack(pady=10) #Login button
@@ -108,8 +108,8 @@ class EnglishLearningApp: #main application class that handles the gui and game 
         self.frame_menu = tk.Frame(self.root, bg="#f0f4f8")
         
         #a label to show the welcome message with the user's name and score, which will be updated when the user logs in
-        self.lbl_welcome = tk.Label(self.frame_menu, text="", font=self.title_font, bg="#f0f4f8", pady=20) #(create a label for welcome message, initially empty) 
-        self.lbl_welcome.pack() #(display it)
+        self.lbl_welcome = tk.Label(self.frame_menu, text="", font=self.title_font, bg="#f0f4f8", pady=20) #create a label for welcome message, initially empty
+        self.lbl_welcome.pack() #display it
         
         #add buttons for playing the game, viewing the leaderboard, and logging out, and link them to their functions
         tk.Button(self.frame_menu, text="Play Word Scramble", font=self.normal_font, width=20, pady=10, bg="#ff9800", fg="white", command=self.start_game).pack(pady=10) #Start game button
@@ -126,12 +126,12 @@ class EnglishLearningApp: #main application class that handles the gui and game 
         tk.Label(self.frame_game, text="Unscramble the letters below:", font=self.normal_font, bg="#f0f4f8").pack() #Instruction label for the game screen
         
         #a label to display the scrambled word, which will be updated with a new scrambled word each time the game starts
-        self.lbl_scrambled = tk.Label(self.frame_game, text="", font=("Helvetica", 20, "bold"), fg="#e91e63", bg="#f0f4f8", pady=15) #(create a label for the scrambled word, initially empty)
-        self.lbl_scrambled.pack() #(display it)
+        self.lbl_scrambled = tk.Label(self.frame_game, text="", font=("Helvetica", 20, "bold"), fg="#e91e63", bg="#f0f4f8", pady=15) #create a label for the scrambled word, initially empty
+        self.lbl_scrambled.pack() #display it
 
         #an entry field for the user to input their guess, which will be checked against the current word when they submit their guess        
-        self.entry_guess = tk.Entry(self.frame_game, font=self.normal_font) #(create an input box for the user's guess)
-        self.entry_guess.pack(pady=10) #(display it)
+        self.entry_guess = tk.Entry(self.frame_game, font=self.normal_font) #create an input box for the user's guess
+        self.entry_guess.pack(pady=10) #display it
         
         #add buttons for submitting the guess and going back to the menu, and link them to their functions
         tk.Button(self.frame_game, text="Submit Guess", font=self.normal_font, bg="#4CAF50", fg="white", command=self.check_guess).pack(pady=5) #Submit guess button
@@ -147,7 +147,7 @@ class EnglishLearningApp: #main application class that handles the gui and game 
         
         # a text box to display scores
         self.txt_scores = tk.Text(self.frame_leaderboard, height=12, width=30, font=self.normal_font, bg="white", state="disabled") #create a text box for displaying the scores, initially disabled so users can't type in it
-        self.txt_scores.pack(pady=10) #(display it)
+        self.txt_scores.pack(pady=10) #display it
         
         tk.Button(self.frame_leaderboard, text="Back to Menu", font=self.normal_font, command=lambda: self.show_screen(self.frame_menu)).pack(pady=10) #Back to menu button
 
