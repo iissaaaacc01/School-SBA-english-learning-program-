@@ -1,3 +1,11 @@
+report note: missing:
+            data validation and verificatpion
+            flow chart
+            user feed back
+            testing case
+            evaluation
+            furture improvment
+
 # Interactive English Learning
 
 A Python/Tkinter desktop application with three English word games and SQLite persistence. It uses Python's standard library; no pip packages, database server, or internet connection are needed to play.
